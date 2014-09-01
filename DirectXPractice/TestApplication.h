@@ -1,5 +1,7 @@
 #pragma once
-class TestApplication
+#include "ApplicationBase.h"
+
+class TestApplication : public ApplicationBase
 {
 public:
 	TestApplication();

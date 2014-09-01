@@ -16,6 +16,12 @@
     <Filter Include="DXUT">
       <UniqueIdentifier>{d5b4a1af-552e-4b78-a696-8a8e08794abc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{299e6553-e3ea-4555-a6c8-d943bc1ac6af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Program">
+      <UniqueIdentifier>{6ea20915-dca7-47bb-999e-8edf2148b626}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\DXUT11\Core\DXUTDevice9.cpp">
@@ -54,6 +60,12 @@
     <ClCompile Include="DirectXPractice9.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ApplicationBase.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="TestApplication.cpp">
+      <Filter>Program</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\DXUT11\Core\DXUTDevice9.h">
@@ -88,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>리소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationBase.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TestApplication.h">
+      <Filter>Program</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
+#include "TestApplication.h"
 
 //--------------------------------------------------------------------------------------
 // Extern declarations 
@@ -21,6 +22,7 @@ extern void CALLBACK OnD3D9FrameRender(IDirect3DDevice9* pd3dDevice, double fTim
 extern void CALLBACK OnD3D9LostDevice(void* pUserContext);
 extern void CALLBACK OnD3D9DestroyDevice(void* pUserContext);
 
+TestApplication apps;
 
 //--------------------------------------------------------------------------------------
 // Reject any D3D11 devices that aren't acceptable by returning false
@@ -28,7 +30,7 @@ extern void CALLBACK OnD3D9DestroyDevice(void* pUserContext);
 bool CALLBACK IsD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo, UINT Output, const CD3D11EnumDeviceInfo *DeviceInfo,
 	DXGI_FORMAT BackBufferFormat, bool bWindowed, void* pUserContext)
 {
-
+	apps.DeviceAcceptable(AdapterInfo, Output, DeviceInfo, BackBufferFormat, bWindowed, pUserContext);
 	return true;
 }
 
@@ -38,7 +40,7 @@ bool CALLBACK IsD3D11DeviceAcceptable(const CD3D11EnumAdapterInfo *AdapterInfo, 
 //--------------------------------------------------------------------------------------
 bool CALLBACK ModifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pUserContext)
 {
-
+	apps.ModifyDeviceSettings(pDeviceSettings, pUserContext);
 	return true;
 }
 
@@ -49,7 +51,7 @@ bool CALLBACK ModifyDeviceSettings(DXUTDeviceSettings* pDeviceSettings, void* pU
 HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc,
 	void* pUserContext)
 {
-
+	apps.OnCreateDevice(pd3dDevice, pBackBufferSurfaceDesc, pUserContext);
 	return S_OK;
 }
 
@@ -60,7 +62,7 @@ HRESULT CALLBACK OnD3D11CreateDevice(ID3D11Device* pd3dDevice, const DXGI_SURFAC
 HRESULT CALLBACK OnD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChain* pSwapChain,
 	const DXGI_SURFACE_DESC* pBackBufferSurfaceDesc, void* pUserContext)
 {
-
+	apps.OnResizedSwapChain(pd3dDevice, pSwapChain, pBackBufferSurfaceDesc, pUserContext);
 	return S_OK;
 }
 
@@ -70,7 +72,7 @@ HRESULT CALLBACK OnD3D11ResizedSwapChain(ID3D11Device* pd3dDevice, IDXGISwapChai
 //--------------------------------------------------------------------------------------
 void CALLBACK OnFrameMove(double fTime, float fElapsedTime, void* pUserContext)
 {
-
+	apps.OnFrameMove(fTime, fElapsedTime, pUserContext);
 }
 
 
@@ -80,13 +82,14 @@ void CALLBACK OnFrameMove(double fTime, float fElapsedTime, void* pUserContext)
 void CALLBACK OnD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* pd3dImmediateContext,
 	double fTime, float fElapsedTime, void* pUserContext)
 {
-	// Clear render target and the depth stencil 
+	apps.OnFrameRender(pd3dDevice, pd3dImmediateContext, fTime, fElapsedTime, pUserContext);
+	/*// Clear render target and the depth stencil 
 	float ClearColor[4] = { 0.176f, 0.196f, 0.667f, 0.0f };
 
 	ID3D11RenderTargetView* pRTV = DXUTGetD3D11RenderTargetView();
 	ID3D11DepthStencilView* pDSV = DXUTGetD3D11DepthStencilView();
 	pd3dImmediateContext->ClearRenderTargetView(pRTV, ClearColor);
-	pd3dImmediateContext->ClearDepthStencilView(pDSV, D3D11_CLEAR_DEPTH, 1.0, 0);
+	pd3dImmediateContext->ClearDepthStencilView(pDSV, D3D11_CLEAR_DEPTH, 1.0, 0);*/
 }
 
 
@@ -95,7 +98,7 @@ void CALLBACK OnD3D11FrameRender(ID3D11Device* pd3dDevice, ID3D11DeviceContext* 
 //--------------------------------------------------------------------------------------
 void CALLBACK OnD3D11ReleasingSwapChain(void* pUserContext)
 {
-
+	apps.OnReleasingSwapChain(pUserContext);
 }
 
 
@@ -104,7 +107,7 @@ void CALLBACK OnD3D11ReleasingSwapChain(void* pUserContext)
 //--------------------------------------------------------------------------------------
 void CALLBACK OnD3D11DestroyDevice(void* pUserContext)
 {
-
+	apps.OnDestroyDevice(pUserContext);
 }
 
 
@@ -114,7 +117,7 @@ void CALLBACK OnD3D11DestroyDevice(void* pUserContext)
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 	bool* pbNoFurtherProcessing, void* pUserContext)
 {
-
+	apps.OnMsg(hWnd, uMsg, wParam, lParam, pbNoFurtherProcessing, pUserContext);
 	return 0;
 }
 
@@ -124,7 +127,7 @@ LRESULT CALLBACK MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 //--------------------------------------------------------------------------------------
 void CALLBACK OnKeyboard(UINT nChar, bool bKeyDown, bool bAltDown, void* pUserContext)
 {
-
+	apps.OnKeyboard(nChar, bKeyDown, bAltDown, pUserContext);
 }
 
 
@@ -135,7 +138,7 @@ void CALLBACK OnMouse(bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleB
 	bool bSideButton1Down, bool bSideButton2Down, int nMouseWheelDelta,
 	int xPos, int yPos, void* pUserContext)
 {
-
+	apps.OnMouse(bLeftButtonDown, bRightButtonDown, bMiddleButtonDown, bSideButton1Down, bSideButton2Down, nMouseWheelDelta, xPos, yPos, pUserContext);
 }
 
 
@@ -144,7 +147,7 @@ void CALLBACK OnMouse(bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleB
 //--------------------------------------------------------------------------------------
 bool CALLBACK OnDeviceRemoved(void* pUserContext)
 {
-
+	apps.OnDeviceRemoved(pUserContext);
 	return true;
 }
 
@@ -190,7 +193,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	DXUTInit(true, true, NULL); // Parse the command line, show msgboxes on error, no extra command line params
 	DXUTSetCursorSettings(true, true); // Show the cursor and clip it when in full screen
-	DXUTCreateWindow(L"EmptyProject11");
+	DXUTCreateWindow(L"DirectXPractice");
 
 	// Only require 10-level hardware
 	DXUTCreateDevice(D3D_FEATURE_LEVEL_10_0, true, 640, 480);

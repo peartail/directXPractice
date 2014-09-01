@@ -7,7 +7,7 @@ public:
 	ApplicationBase();
 	~ApplicationBase();
 
-protected:
+public:
 	virtual bool DeviceAcceptable(const CD3D11EnumAdapterInfo* , UINT , const CD3D11EnumDeviceInfo* , DXGI_FORMAT , bool , void * );
 	virtual bool ModifyDeviceSettings(DXUTDeviceSettings*, void*);
 	virtual HRESULT OnCreateDevice(ID3D11Device*, const DXGI_SURFACE_DESC*, void*);
@@ -19,5 +19,6 @@ protected:
 	virtual LRESULT OnMsg(HWND, UINT, WPARAM, LPARAM, bool*, void*);
 	virtual void OnKeyboard(UINT, bool, bool, void*);
 	virtual void OnMouse(bool, bool, bool, bool, bool, int, int, int, void*);
+	virtual bool OnDeviceRemoved(void*);
 };
 
