@@ -138,7 +138,17 @@ void CALLBACK OnMouse(bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleB
 	bool bSideButton1Down, bool bSideButton2Down, int nMouseWheelDelta,
 	int xPos, int yPos, void* pUserContext)
 {
-	apps.OnMouse(bLeftButtonDown, bRightButtonDown, bMiddleButtonDown, bSideButton1Down, bSideButton2Down, nMouseWheelDelta, xPos, yPos, pUserContext);
+	sMouseEvent ev;
+	ev.isLeftButtonDown = bLeftButtonDown;
+	ev.isRightButtonDown = bRightButtonDown;
+	ev.isMiddleButtonDown = bMiddleButtonDown;
+	ev.isSide1ButtonDown = bSideButton1Down;
+	ev.isSide2ButtonDown = bSideButton2Down;
+	ev.MouseWheelDelta = nMouseWheelDelta;
+	ev.mpos.x = xPos;
+	ev.mpos.y = yPos;
+
+	apps.OnMouse(ev, pUserContext);
 }
 
 

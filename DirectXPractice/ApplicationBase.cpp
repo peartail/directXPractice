@@ -92,9 +92,7 @@ void ApplicationBase::OnKeyboard(UINT nChar, bool bKeyDown, bool bAltDown, void*
 //--------------------------------------------------------------------------------------
 // Handle mouse button presses
 //--------------------------------------------------------------------------------------
-void ApplicationBase::OnMouse(bool bLeftButtonDown, bool bRightButtonDown, bool bMiddleButtonDown,
-	bool bSideButton1Down, bool bSideButton2Down, int nMouseWheelDelta,
-	int xPos, int yPos, void* pUserContext)
+void ApplicationBase::OnMouse(sMouseEvent ev, void* pUserContext)
 {
 
 }

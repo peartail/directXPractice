@@ -1,5 +1,6 @@
 #pragma once
 #include "DXUT.h"
+#include "common.h"
 
 class ApplicationBase
 {
@@ -18,7 +19,7 @@ public:
 	virtual void OnDestroyDevice(void*);
 	virtual LRESULT OnMsg(HWND, UINT, WPARAM, LPARAM, bool*, void*);
 	virtual void OnKeyboard(UINT, bool, bool, void*);
-	virtual void OnMouse(bool, bool, bool, bool, bool, int, int, int, void*);
+	virtual void OnMouse(sMouseEvent ev, void*);
 	virtual bool OnDeviceRemoved(void*);
 };
 

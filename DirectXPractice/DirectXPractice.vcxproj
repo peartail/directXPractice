@@ -89,7 +89,9 @@
     <ClCompile Include="ApplicationBase.cpp" />
     <ClCompile Include="DirectXPractice.cpp" />
     <ClCompile Include="DirectXPractice9.cpp" />
+    <ClCompile Include="ShaderUtil.cpp" />
     <ClCompile Include="TestApplication.cpp" />
+    <ClCompile Include="TestShaderUtil1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\DXUT11\Core\DXUT.h" />
@@ -103,8 +105,11 @@
     <ClInclude Include="..\..\DXUT11\Optional\SDKmesh.h" />
     <ClInclude Include="..\..\DXUT11\Optional\SDKmisc.h" />
     <ClInclude Include="ApplicationBase.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ShaderUtil.h" />
     <ClInclude Include="TestApplication.h" />
+    <ClInclude Include="TestShaderUtil1.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Practice.rc" />
