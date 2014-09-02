@@ -12,7 +12,7 @@ private:
 	std::wstring _shaderfile;
 	std::string _vsmain;
 	std::string _psmain;
-	D3D11_INPUT_ELEMENT_DESC* _layout;
+	D3D11_INPUT_ELEMENT_DESC _layout[3];
 public:
 	TestShaderUtil1();
 	~TestShaderUtil1();
@@ -21,5 +21,19 @@ public:
 	HRESULT SetVertexShader(std::string vsmain);
 	HRESULT SetPixelShader(std::string psmain);
 	HRESULT CompileShaderFromFile(std::wstring szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
+
+
+	ID3D11VertexShader* GetVertexShader() 
+	{
+		return _VertexShader;
+	}
+	ID3D11PixelShader* GetPixelShader() 
+	{
+		return _PixelShader;
+	}
+	ID3D11InputLayout* GetVertexLayout() 
+	{
+		return _vertexLayout;
+	}
 };
 

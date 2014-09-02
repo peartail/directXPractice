@@ -1,10 +1,11 @@
+#include "DXUT.h"
 #include "TestShaderUtil1.h"
 
 
 TestShaderUtil1::TestShaderUtil1()
 {
 	// Create our vertex input layout
-	_layout = new D3D11_INPUT_ELEMENT_DESC[3];
+	//_layout = new D3D11_INPUT_ELEMENT_DESC[3];
 	_layout[0] = { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 };
 	_layout[0] = { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 };
 	_layout[0] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 };
@@ -13,6 +14,10 @@ TestShaderUtil1::TestShaderUtil1()
 
 TestShaderUtil1::~TestShaderUtil1()
 {
+	SAFE_RELEASE(_vertexLayout);
+	SAFE_RELEASE(_VertexShader);
+	SAFE_RELEASE(_PixelShader);
+
 }
 
 HRESULT TestShaderUtil1::ShaderSetting(ID3D11Device& pd3dDevice, ID3D11InputLayout* vlayout)
@@ -20,15 +25,13 @@ HRESULT TestShaderUtil1::ShaderSetting(ID3D11Device& pd3dDevice, ID3D11InputLayo
 	_vertexLayout = vlayout;
 	HRESULT hr;
 	// Create the shaders
-	ID3DBlob* pVertexShaderBuffer = NULL;
 	ID3DBlob* pPixelShaderBuffer = NULL;
 
 	ID3DBlob* pVertexShaderBuffer = NULL;
 	
-	V_RETURN(CompileShaderFromFile(_shaderfile, _vsmain.c_str(), "vs_4_0_level_9_1", &pVertexShaderBuffer));
+	V_RETURN(CompileShaderFromFile(L"Practice_VS.hlsl", _vsmain.c_str(), "vs_4_0_level_9_1", &pVertexShaderBuffer));
 
-	ID3DBlob* pPixelShaderBuffer = NULL;
-	V_RETURN(CompileShaderFromFile(_shaderfile, _psmain.c_str(), "ps_4_0_level_9_1", &pPixelShaderBuffer));
+	V_RETURN(CompileShaderFromFile(L"Practice_PS.hlsl", _psmain.c_str(), "ps_4_0_level_9_1", &pPixelShaderBuffer));
 
 	V_RETURN(pd3dDevice.CreateVertexShader(pVertexShaderBuffer->GetBufferPointer(),
 		pVertexShaderBuffer->GetBufferSize(), NULL, &_VertexShader));
@@ -38,7 +41,7 @@ HRESULT TestShaderUtil1::ShaderSetting(ID3D11Device& pd3dDevice, ID3D11InputLayo
 	DXUT_SetDebugName(_PixelShader, _vsmain.c_str());
 
 
-	V_RETURN(pd3dDevice.CreateInputLayout(_layout, 3, pVertexShaderBuffer->GetBufferPointer(),
+	V_RETURN(pd3dDevice.CreateInputLayout(_layout, ARRAYSIZE(_layout), pVertexShaderBuffer->GetBufferPointer(),
 		pVertexShaderBuffer->GetBufferSize(), &_vertexLayout));
 	DXUT_SetDebugName(g_pVertexLayout11, "Primary");
 

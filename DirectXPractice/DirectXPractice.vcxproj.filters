@@ -131,4 +131,15 @@
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\specularmapping.fx">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Practice_PS.hlsl">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Practice_VS.hlsl">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
 </Project>

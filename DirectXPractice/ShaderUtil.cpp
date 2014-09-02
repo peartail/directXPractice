@@ -1,3 +1,4 @@
+#include "DXUT.h"
 #include "ShaderUtil.h"
 
 
