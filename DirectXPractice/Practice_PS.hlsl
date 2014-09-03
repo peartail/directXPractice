@@ -1,6 +1,3 @@
-
-float SpSize;
-
 struct PS_INPUT
 {
 	float2 mUV : TEXCOORD0;
@@ -9,14 +6,16 @@ struct PS_INPUT
 	float3 mr : TEXCOORD3;
 };
 
-sampler2D DSp;
-sampler2D SSp;
+float SpSize;
+
+//sampler2D DSp;
+//sampler2D SSp;
 
 float3 gLightColor;
 
 float4 ps_main(PS_INPUT i) : COLOR0
 {
-	float4 albedo = tex2D(DSp, i.mUV);
+	/*float4 albedo = tex2D(DSp, i.mUV);
 
 	float3 dif = gLightColor*albedo.rgb*saturate(i.md);
 
@@ -35,7 +34,8 @@ float4 ps_main(PS_INPUT i) : COLOR0
 	float3 ambient = float3(0.1f, 0.1f, 0.1f) * albedo;
 
 		return float4(ambient + dif + specular, 1);
-
+	*/
+	return float4(1, 1, 1, 1);
 }
 
 

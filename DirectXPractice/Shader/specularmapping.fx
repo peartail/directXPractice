@@ -20,7 +20,7 @@
 //--------------------------------------------------------------//
 // Pass 0
 //--------------------------------------------------------------//
-string Lighting_Pass_0_Model : ModelData = "C:\\Program Files (x86)\\AMD\\RenderMonkey 1.82\\Examples\\Media\\Models\\Sphere.3ds";
+//string Lighting_Pass_0_Model : ModelData = "C:\\Program Files (x86)\\AMD\\RenderMonkey 1.82\\Examples\\Media\\Models\\Sphere.3ds";
 
 struct VS_INPUT
 {
@@ -103,14 +103,17 @@ texture DiffuseMap_Tex
 <
    string ResourceName = "C:\\Program Files (x86)\\AMD\\RenderMonkey 1.82\\Examples\\Media\\Textures\\Fieldstone.tga";
 >;
+
 sampler2D DSp = sampler_state
 {
    Texture = (DiffuseMap_Tex);
 };
+
 texture SpecularMap_Tex
 <
-   string ResourceName = "..\\..\\ได\Ü\\PopeShaderBookCodeSamplesKOR\\05_DiffuseSpecularMapping\\fieldstone_SM.tga";
+   string ResourceName = "..\\..\\ได\?\PopeShaderBookCodeSamplesKOR\\05_DiffuseSpecularMapping\\fieldstone_SM.tga";
 >;
+
 sampler2D SSp = sampler_state
 {
    Texture = (SpecularMap_Tex);

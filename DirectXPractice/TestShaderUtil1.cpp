@@ -7,8 +7,8 @@ TestShaderUtil1::TestShaderUtil1()
 	// Create our vertex input layout
 	//_layout = new D3D11_INPUT_ELEMENT_DESC[3];
 	_layout[0] = { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 };
-	_layout[0] = { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 };
-	_layout[0] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 };
+	_layout[1] = { "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 };
+	_layout[2] = { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 };
 }
 
 
@@ -29,9 +29,23 @@ HRESULT TestShaderUtil1::ShaderSetting(ID3D11Device& pd3dDevice, ID3D11InputLayo
 
 	ID3DBlob* pVertexShaderBuffer = NULL;
 	
-	V_RETURN(CompileShaderFromFile(L"Practice_VS.hlsl", _vsmain.c_str(), "vs_4_0_level_9_1", &pVertexShaderBuffer));
+	// Compile the shaders
+	DWORD dwShaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
+#if defined( DEBUG ) || defined( _DEBUG )
+	// Set the D3DCOMPILE_DEBUG flag to embed debug information in the shaders.
+	// Setting this flag improves the shader debugging experience, but still allows 
+	// the shaders to be optimized and to run exactly the way they will run in 
+	// the release configuration of this program.
+	dwShaderFlags |= D3DCOMPILE_DEBUG;
+#endif
 
-	V_RETURN(CompileShaderFromFile(L"Practice_PS.hlsl", _psmain.c_str(), "ps_4_0_level_9_1", &pPixelShaderBuffer));
+	//V_RETURN(D3DX11CompileFromFile(L"BasicHLSL11_VS.hlsl", NULL, NULL, _vsmain.c_str(), "vs_4_0_level_9_1", dwShaderFlags, 0, NULL, &pVertexShaderBuffer, NULL, NULL));
+
+	//V_RETURN(D3DX11CompileFromFile(L"BasicHLSL11_PS.hlsl", NULL, NULL, _psmain.c_str(), "ps_4_0_level_9_1", dwShaderFlags, 0, NULL, &pPixelShaderBuffer, NULL, NULL));
+
+	V_RETURN(CompileShaderFromFile(L"BasicHLSL11_VS.hlsl", _vsmain.c_str(), "vs_4_0_level_9_1", &pVertexShaderBuffer));
+
+	V_RETURN(CompileShaderFromFile(L"BasicHLSL11_PS.hlsl", _psmain.c_str(), "ps_4_0_level_9_1", &pPixelShaderBuffer));
 
 	V_RETURN(pd3dDevice.CreateVertexShader(pVertexShaderBuffer->GetBufferPointer(),
 		pVertexShaderBuffer->GetBufferSize(), NULL, &_VertexShader));

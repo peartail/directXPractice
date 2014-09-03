@@ -1,0 +1,21 @@
+﻿빌드 시작: 2014-09-03 15:57:31
+     1>3 노드의 "E:\MyDevelopStudy\VSProject\directXPractice\DirectX10Practice\DirectX10Practice.vcxproj" 프로젝트(Build 대상)입니다.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\MyDevelopStudy\VSProject\directXPractice\Release\DirectX10Practice.exe" /NOLOGO d3dx10d.lib d3dx9d.lib dxerr.lib dxguid.lib winmm.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\MyDevelopStudy\VSProject\directXPractice\Release\DirectX10Practice.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\MyDevelopStudy\VSProject\directXPractice\Release\DirectX10Practice.lib" /MACHINE:X86 /SAFESEH Release\DXUT.obj
+         Release\DXUTenum.obj
+         Release\DXUTmisc.obj
+         Release\DXUTcamera.obj
+         Release\DXUTgui.obj
+         Release\DXUTres.obj
+         Release\DXUTsettingsdlg.obj
+         Release\DXUTShapes.obj
+         Release\SDKmesh.obj
+         Release\SDKmisc.obj
+         Release\DirectXPractice10.obj
+         Release\DirectXPractice9.obj
+         DirectX10Practice.vcxproj -> E:\MyDevelopStudy\VSProject\directXPractice\Release\DirectX10Practice.exe
+     1>"E:\MyDevelopStudy\VSProject\directXPractice\DirectX10Practice\DirectX10Practice.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:00.54

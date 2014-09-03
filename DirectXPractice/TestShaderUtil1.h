@@ -9,6 +9,7 @@ private:
 	ID3D11InputLayout* _vertexLayout;
 	ID3D11VertexShader* _VertexShader;
 	ID3D11PixelShader* _PixelShader;
+
 	std::wstring _shaderfile;
 	std::string _vsmain;
 	std::string _psmain;

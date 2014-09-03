@@ -2,6 +2,7 @@
 #define __COMMON_H__
 
 #include "DXUT.h"
+#include "app_setting.h"
 
 template<typename T>
 struct VECTOR2

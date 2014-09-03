@@ -1,0 +1,41 @@
+﻿빌드 시작: 2014-09-03 15:57:31
+     1>2 노드의 "E:\MyDevelopStudy\VSProject\directXPractice\DirectXPractice\DirectXPractice.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\DXUT11\Core\DXUT.cpp ..\..\DXUT11\Core\DXUTDevice11.cpp ..\..\DXUT11\Core\DXUTDevice9.cpp ..\..\DXUT11\Core\DXUTmisc.cpp ..\..\DXUT11\Optional\DXUTcamera.cpp ..\..\DXUT11\Optional\DXUTgui.cpp ..\..\DXUT11\Optional\DXUTres.cpp ..\..\DXUT11\Optional\DXUTsettingsdlg.cpp ..\..\DXUT11\Optional\SDKmesh.cpp ..\..\DXUT11\Optional\SDKmisc.cpp ApplicationBase.cpp DirectXPractice.cpp DirectXPractice9.cpp ShaderUtil.cpp TestApplication.cpp TestShaderUtil1.cpp
+         DXUT.cpp
+     1>e:\mydevelopstudy\vsproject\dxut11\core\DXUT.h(11): fatal error C1189: #error :  "DXUT requires a Unicode build."
+         DXUTDevice11.cpp
+     1>e:\mydevelopstudy\vsproject\dxut11\core\DXUT.h(11): fatal error C1189: #error :  "DXUT requires a Unicode build."
+         DXUTDevice9.cpp
+     1>e:\mydevelopstudy\vsproject\dxut11\core\DXUT.h(11): fatal error C1189: #error :  "DXUT requires a Unicode build."
+         DXUTmisc.cpp
+     1>e:\mydevelopstudy\vsproject\dxut11\core\dxut.h(11): fatal error C1189: #error :  "DXUT requires a Unicode build."
+         DXUTcamera.cpp
+     1>..\..\DXUT11\Optional\DXUTcamera.cpp(6): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         DXUTgui.cpp
+     1>..\..\DXUT11\Optional\DXUTgui.cpp(6): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         DXUTres.cpp
+     1>..\..\DXUT11\Optional\DXUTres.cpp(6): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         DXUTsettingsdlg.cpp
+     1>..\..\DXUT11\Optional\DXUTsettingsdlg.cpp(8): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         SDKmesh.cpp
+     1>..\..\DXUT11\Optional\SDKmesh.cpp(11): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         SDKmisc.cpp
+     1>..\..\DXUT11\Optional\SDKmisc.cpp(8): fatal error C1083: 포함 파일을 열 수 없습니다. 'dxut.h': No such file or directory
+         ApplicationBase.cpp
+     1>ApplicationBase.cpp(1): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         DirectXPractice.cpp
+     1>DirectXPractice.cpp(8): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         DirectXPractice9.cpp
+     1>DirectXPractice9.cpp(8): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         ShaderUtil.cpp
+     1>ShaderUtil.cpp(1): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         TestApplication.cpp
+     1>TestApplication.cpp(1): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+         TestShaderUtil1.cpp
+     1>TestShaderUtil1.cpp(1): fatal error C1083: 포함 파일을 열 수 없습니다. 'DXUT.h': No such file or directory
+     1>"E:\MyDevelopStudy\VSProject\directXPractice\DirectXPractice\DirectXPractice.vcxproj" 프로젝트를 빌드했습니다(Build 대상). - 실패
+
+빌드하지 못했습니다.
+
+경과 시간: 00:00:00.57

@@ -25,7 +25,7 @@ HRESULT TestApplication::OnCreateDevice(ID3D11Device* pd3dDevice, const DXGI_SUR
 	D3DXVECTOR3 vCenter(0.25767413f, -28.503521f, 111.00689f);
 	FLOAT fObjectRadius = 378.15607f;
 
-	_shaderutil.SetShaderName(L"Practice", "vs_main", "ps_main");
+	_shaderutil.SetShaderName(L"Practice", "VSMain", "PSMain");
 	_shaderutil.ShaderSetting(*_device, _vertexLayout);
 
 	// Load the mesh
