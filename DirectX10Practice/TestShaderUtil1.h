@@ -14,6 +14,9 @@ private:
 	ID3D10Effect* _Effect10;
 	
 	ID3D10InputLayout* _vertexLayout;
+	ID3D10EffectMatrixVariable* _WorldMatrix;
+	ID3D10EffectMatrixVariable* _ViewMatrix;
+	ID3D10EffectMatrixVariable* _projectionMatrix;
 public:
 	TestShaderUtil1();
 	~TestShaderUtil1();
