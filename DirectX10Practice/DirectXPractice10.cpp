@@ -6,7 +6,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 //--------------------------------------------------------------------------------------
 #include "DXUT.h"
-#include "ApplicationBase.h"
+#include "TestApplication1.h"
 
 //--------------------------------------------------------------------------------------
 // Extern declarations 
@@ -22,7 +22,7 @@ extern void CALLBACK OnD3D9FrameRender(IDirect3DDevice9* pd3dDevice, double fTim
 extern void CALLBACK OnD3D9LostDevice(void* pUserContext);
 extern void CALLBACK OnD3D9DestroyDevice(void* pUserContext);
 
-ApplicationBase _game;
+TestApplication1 _game;
 
 //--------------------------------------------------------------------------------------
 // Reject any D3D10 devices that aren't acceptable by returning false

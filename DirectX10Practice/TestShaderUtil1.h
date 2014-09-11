@@ -26,5 +26,10 @@ public:
 	HRESULT SetVertexShader(std::string vsmain);
 	HRESULT SetPixelShader(std::string psmain);
 	HRESULT CompileShaderFromFile(std::wstring szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut);
+
+	ID3D10EffectTechnique* GetTechnique(){ return _shaderTechnique; }
+	void SetWorldMatrix(D3DXMATRIX);
+	void SetViewMatrix(D3DXMATRIX);
+	void SetProjectionMatrix(D3DXMATRIX);
 };
 

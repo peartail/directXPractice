@@ -23,6 +23,9 @@ HRESULT TestShaderUtil1::ShaderSetting(ID3D10Device& pd3dDevice)
 	HRESULT hr;
 
 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS;
+	ID3D10Blob* ret = NULL;
+
+	ID3D10Blob* pError = NULL;
 #if defined( DEBUG ) || defined( _DEBUG )
 	// Set the D3D10_SHADER_DEBUG flag to embed debug information in the shaders.
 	// Setting this flag improves the shader debugging experience, but still allows 
@@ -36,9 +39,13 @@ HRESULT TestShaderUtil1::ShaderSetting(ID3D10Device& pd3dDevice)
 	WCHAR str[MAX_PATH];
 	V_RETURN(DXUTFindDXSDKMediaFileCch(str, MAX_PATH, _shaderfile.c_str()));
 	V_RETURN(D3DX10CreateEffectFromFile(str, NULL, NULL, "fx_4_0", dwShaderFlags, 0, &pd3dDevice, NULL,
-		NULL, &_Effect10, NULL, NULL));
+		NULL, &_Effect10, &ret, &hr));
 
 	_shaderTechnique = _Effect10->GetTechniqueByName(_techniqueName.c_str());
+
+	_WorldMatrix = _Effect10->GetVariableByName("gWm")->AsMatrix();
+	_ViewMatrix = _Effect10->GetVariableByName("gVm")->AsMatrix();
+	_projectionMatrix = _Effect10->GetVariableByName("gPm")->AsMatrix();
 
 	D3D10_PASS_DESC PassDesc;
 	V_RETURN(_shaderTechnique->GetPassByIndex(0)->GetDesc(&PassDesc));
@@ -67,4 +74,19 @@ HRESULT TestShaderUtil1::SetPixelShader(std::string psmain)
 HRESULT TestShaderUtil1::CompileShaderFromFile(std::wstring szFileName, LPCSTR szEntryPoint, LPCSTR szShaderModel, ID3DBlob** ppBlobOut)
 {
 	return S_OK;
+}
+
+void TestShaderUtil1::SetWorldMatrix(D3DXMATRIX mat)
+{
+	_WorldMatrix->SetMatrix(mat);
+}
+
+void TestShaderUtil1::SetViewMatrix(D3DXMATRIX mat)
+{
+	_ViewMatrix->SetMatrix(mat);
+}
+
+void TestShaderUtil1::SetProjectionMatrix(D3DXMATRIX mat)
+{
+	_projectionMatrix->SetMatrix(mat);
 }

@@ -126,6 +126,16 @@
   <ItemGroup>
     <None Include="Model\Sphere.sdkmesh" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\SpecularMapping_2.fx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\BasicHLSL10.fx">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -101,7 +101,7 @@ struct PS_INPUT
 
 texture DiffuseMap_Tex
 <
-   string ResourceName = "C:\\Program Files (x86)\\AMD\\RenderMonkey 1.82\\Examples\\Media\\Textures\\Fieldstone.tga";
+   string ResourceName = "Fieldstone.tga";
 >;
 
 sampler2D DSp = sampler_state
@@ -111,7 +111,7 @@ sampler2D DSp = sampler_state
 
 texture SpecularMap_Tex
 <
-   string ResourceName = "..\\..\\ได\?\PopeShaderBookCodeSamplesKOR\\05_DiffuseSpecularMapping\\fieldstone_SM.tga";
+   string ResourceName = "fieldstone_SM.tga";
 >;
 
 sampler2D SSp = sampler_state

@@ -1,5 +1,6 @@
 #pragma once
 #include "DXUT.h"
+#include "DXUTcamera.h"
 #include "SDKmesh.h"
 #include "ApplicationBase.h"
 #include "TestShaderUtil1.h"
@@ -15,6 +16,8 @@ private:
 
 	CDXUTSDKMesh _Mesh;
 	TShader _shaderutil;
+	CModelViewerCamera	_camera;
+	D3DXMATRIXA16 _mCenterMesh;
 public:
 	TestApplication1();
 	~TestApplication1();
